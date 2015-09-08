@@ -193,6 +193,10 @@ public class HttpClient {
         req.setMethod(request.getMethod());
         req.setCompressed(request.getCompressed());              
         
+		if(request.getHeader('Content-Type').length() > 0 ){
+            req.setHeader('Content-Type',request.getHeader('Content-Type'));
+        }  
+		
         req.setBodyAsBlob(request.getBodyAsBlob());
         
         return req;
